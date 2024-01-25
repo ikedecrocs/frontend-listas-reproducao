@@ -1,1 +1,60 @@
-<p>lista-listas works!</p>
+<div class="d-flex flex-column mt-5 px-5 align-items-center">
+    <mat-table [dataSource]="listas" class="align-middle table table-sm">
+
+        <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Nome </th>
+            <td mat-cell *matCellDef="let lista"> {{lista.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Descrição </th>
+            <td mat-cell *matCellDef="let lista"> {{lista.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Ações </th>
+            <td mat-cell *matCellDef="let lista"> <button mat-raised-button color="warn" (click)="excluir(lista.nome)">Excluir</button> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="align-middle" (click)="abrirDetalhes(row.nome)"></tr>
+
+    </mat-table>
+</div>
+
+<div class="d-flex flex-column mt-5 px-5">
+    <h2 class="text-center">Informações</h2>
+    <p><b>Nome: </b> {{lista.nome}}</p>
+    <p><b>Descrição: </b> {{lista.nome}}</p>
+    <mat-table [dataSource]="lista.musicas" class="align-middle table table-sm">
+
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Título </th>
+            <td mat-cell *matCellDef="let musica"> {{musica.titulo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="artista">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Artista </th>
+            <td mat-cell *matCellDef="let musica"> {{musica.artista}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="album">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Álbum </th>
+            <td mat-cell *matCellDef="let musica"> {{musica.album}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ano">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Ano </th>
+            <td mat-cell *matCellDef="let musica"> {{musica.ano}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="genero">
+            <th mat-header-cell *matHeaderCellDef class="align-middle"> Gênero </th>
+            <td mat-cell *matCellDef="let musica"> {{musica.genero}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsMusicas"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsMusicas;" class="align-middle"></tr>
+
+    </mat-table>
+</div>

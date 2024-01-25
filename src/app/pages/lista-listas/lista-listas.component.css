@@ -1,0 +1,7 @@
+mat-table {
+    display: table;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    cursor: pointer;
+}

@@ -1,1 +1,58 @@
-<p>form-lista works!</p>
+<div class="mx-5 mt-4 d-flex flex-column">
+    <h2 class="text-center">Cadastro de lista de reprodução</h2>
+
+    <form [formGroup]="formLista">
+
+        <p>
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Descrição</mat-label>
+                <input matInput formControlName="descricao">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <button mat-raised-button color="primary" (click)="adicionarMusica()">Adicionar música</button>
+        </p>
+
+        <!-- Array de músicas para adição no cadastro -->
+        <div formArrayName="musicas">
+            <div *ngFor="let musica of controleMusicas.controls;  let i=index">
+                <hr>
+                <div [formGroupName]="i">
+
+                    <mat-form-field>
+                        <label>Titulo</label>
+                        <input matInput formControlName="titulo">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Artista</label>
+                        <input matInput formControlName="artista">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Álbum</label>
+                        <input matInput formControlName="album">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Ano</label>
+                        <input matInput formControlName="ano">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <label>Gênero</label>
+                        <input matInput formControlName="genero">
+                    </mat-form-field>
+
+                    <button mat-raised-button color="warn" (click)="removerMusica(i)">Remover</button>
+
+              </div>
+            </div>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="adicionarRegistro()">Cadastrar</button>
+
+    </form>
+</div>

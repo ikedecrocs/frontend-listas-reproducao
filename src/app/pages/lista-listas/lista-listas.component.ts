@@ -14,6 +14,7 @@ export class ListaListasComponent implements OnInit {
   lista: ListaReproducao;
   listaForm: FormGroup;
 
+  // Colunas que serão utilizadas nas tabelas
   displayedColumns: string[] = ['nome', 'descricao', 'acoes'];
   displayedColumnsMusicas: string[] = ['titulo', 'artista', 'album', 'ano', 'genero'];
 
@@ -33,6 +34,7 @@ export class ListaListasComponent implements OnInit {
     this.listar();
   }
 
+  // Método para recuperar a lista de informações dentro do sistema, colocando-as dentro do atributo listas
   listar () {
     this.service.listar().subscribe(
       data => {
@@ -42,6 +44,7 @@ export class ListaListasComponent implements OnInit {
     )
   }
 
+  // Método para recuperar as informações detalhas do registro selecionado na tabela, colocando estes dados no atributo lista
   abrirDetalhes(nomeLista: string) {
     console.log(`Buscando ${nomeLista}`)
     this.service.buscar(nomeLista).subscribe(
@@ -52,6 +55,7 @@ export class ListaListasComponent implements OnInit {
     )
   }
 
+  // Excluí o registro selecionado
   excluir(nomeLista: string) {
     this.service.excluir(nomeLista).subscribe(
       data => {

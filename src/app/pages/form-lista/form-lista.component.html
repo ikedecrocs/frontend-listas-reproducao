@@ -1,6 +1,7 @@
 <div class="mx-5 mt-4 d-flex flex-column">
     <h2 class="text-center">Cadastro de lista de reprodução</h2>
 
+    <!-- Form para o envio de listas para o backend -->
     <form [formGroup]="formLista">
 
         <p>
@@ -15,6 +16,8 @@
             </mat-form-field>
         </p>
 
+        <!-- Botão para a adição de um novo registro de música dentro da lista de reprodução sendo criada -->
+        
         <p>
             <button mat-raised-button color="primary" (click)="adicionarMusica()">Adicionar música</button>
         </p>
@@ -46,12 +49,14 @@
                         <input matInput formControlName="genero">
                     </mat-form-field>
 
+                    <!-- Botão para remoção da música atual -->
                     <button mat-raised-button color="warn" (click)="removerMusica(i)">Remover</button>
 
               </div>
             </div>
         </div>
 
+        <!-- Botão para o submit das informações -->
         <button mat-raised-button color="primary" (click)="adicionarRegistro()">Cadastrar</button>
 
     </form>

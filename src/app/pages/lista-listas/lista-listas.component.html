@@ -1,3 +1,4 @@
+<!-- Tabela para a listagens dos elementos dentro do sistema. Clickar no elemento fará com que suas informações sejam mostradas abaixo -->
 <div class="d-flex flex-column mt-5 px-5 align-items-center">
     <mat-table [dataSource]="listas" class="align-middle table table-sm">
 
@@ -17,11 +18,13 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <!-- Definindo método para click na tabela que abrirá as informações do registro, além de definir a linha dentro da tabela -->
         <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="align-middle" (click)="abrirDetalhes(row.nome)"></tr>
 
     </mat-table>
 </div>
 
+<!-- Display de informações detalhadas sobre o registro clickado na tabela -->
 <div class="d-flex flex-column mt-5 px-5">
     <h2 class="text-center">Informações</h2>
     <p><b>Nome: </b> {{lista.nome}}</p>

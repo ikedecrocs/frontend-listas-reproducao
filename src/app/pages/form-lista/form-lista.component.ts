@@ -36,10 +36,12 @@ export class FormListaComponent {
     });
   }
 
+  // Get para os controles de form dentro do array de músicas
   get controleMusicas (): any {
     return this.formLista.get('musicas') as FormArray;
   }
 
+  // Adição de uma nova música dentro do formGroup
   adicionarMusica () {
     const musicas = this.formLista.get('musicas') as FormArray;
     console.log(musicas)
@@ -56,11 +58,13 @@ export class FormListaComponent {
     }
   }
 
+  // Remoção da música enviada do formGroup
   removerMusica (index: any) {
     const musicas = this.formLista.get('musicas') as FormArray;
     musicas.removeAt(index);
   }
 
+  // Método para submit de informações para a service
   adicionarRegistro () {
     this.lista.nome = this.formLista.get('nome')?.value;
     this.lista.descricao = this.formLista.get('descricao')?.value;
